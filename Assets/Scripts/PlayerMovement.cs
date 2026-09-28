@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        controller.Move(move * currentSpeed * Time.deltaTime);
+        if (controller != null && controller.enabled)
+{
+    controller.Move(move); 
+}
     }
 }
